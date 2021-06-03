@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:42:35 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/03 16:40:19 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/03 17:45:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include <stdio.h>
 # include <stdarg.h>
 
-int	ft_printf(const char *input, ...);
+int	ft_printf(const char *format, ...);
 
 # endif
