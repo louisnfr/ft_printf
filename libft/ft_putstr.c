@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/03 15:43:25 by lraffin          ###   ########.fr       */
+/*   Created: 2021/04/14 19:39:52 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/03 15:42:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_putstr(const char *s)
 {
-	ft_printf("bonjour\n");
-	return (0);
+	while (s && *s)
+		write(1, s++, 1);
 }

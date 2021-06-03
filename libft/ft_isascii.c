@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/03 15:43:25 by lraffin          ###   ########.fr       */
+/*   Created: 2021/04/11 16:15:36 by lraffin           #+#    #+#             */
+/*   Updated: 2021/04/17 23:38:59 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_isascii(int c)
 {
-	ft_printf("bonjour\n");
+	if (c >= 0 && c <= 127)
+		return (1);
 	return (0);
 }

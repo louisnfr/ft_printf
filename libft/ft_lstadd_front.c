@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/03 15:43:25 by lraffin          ###   ########.fr       */
+/*   Created: 2021/04/15 02:13:31 by lraffin           #+#    #+#             */
+/*   Updated: 2021/04/15 14:45:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	ft_printf("bonjour\n");
-	return (0);
+	new->next = *alst;
+	*alst = new;
 }

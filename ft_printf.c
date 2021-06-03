@@ -6,13 +6,14 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/03 00:30:24 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/03 15:45:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *str, ...)
 {
-	ft_putstr(char);
+	ft_putstr(str);
+	return (0);
 }
