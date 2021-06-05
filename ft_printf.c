@@ -6,36 +6,49 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/03 17:55:33 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/05 15:35:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_parse_flags(const char *format, size_t i)
+void	ft_parse_flags(const char *format, size_t i, va_list p)
 {
-	if (format[i] == 'd')
-		printf("value\n");
-		
+	// flags : -0.*
+	
+	// arguments : cspdiuxX
+	if (format[i] == 'c')
+		ft_putchar((char)va_arg(p, int));
 	if (format[i] == 's')
-		printf("string\n");
+		ft_putstr((char *)va_arg(p, char *));
+	if (format[i] == 'd')
+		ft_putnbr((int)va_arg(p, int));
 }
 
-char	ft_check_format(const char *format)
+char	ft_check_format(const char *format, va_list p)
 {
 	size_t	i;
 
-	i = -1;
-	while (format[++i] && format[i] != '%')
-		ft_putchar(format[i]);
-	if (format[i] == '%')
-		ft_parse_flags(format, i + 1);
+	i = 0;
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			ft_parse_flags(format, i + 1, p);
+			i++;
+		}
+		else
+			ft_putchar(format[i]);
+		i++;
+	}
 	return (0);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	ft_check_format(format);
+	va_list param;
+	va_start(param, format);
+	ft_check_format(format, param);
 	return (0);
 }
