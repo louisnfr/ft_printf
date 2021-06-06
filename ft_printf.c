@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/05 15:35:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/06 19:00:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	ft_parse_flags(const char *format, size_t i, va_list p)
 		ft_putchar((char)va_arg(p, int));
 	if (format[i] == 's')
 		ft_putstr((char *)va_arg(p, char *));
-	if (format[i] == 'd')
+	if (format[i] == 'p')
+		ft_putstr(va_arg(p, void *));
+	if (format[i] == 'd' || format[i] == 'i')
 		ft_putnbr((int)va_arg(p, int));
 }
 

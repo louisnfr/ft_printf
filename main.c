@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/05 15:36:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/06 19:03:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 int	main(void)
 {
-	ft_printf("number: %d\nchar: %c\nstring: %s\n", 156, 'c', "bonjour");
+	char a = 65;
+	
+	ft_printf("d: %d, i: %i\n", 65, 42);
+	printf("d: %d, i: %i\n", 65, 42);
+	
 	return (0);
 }
