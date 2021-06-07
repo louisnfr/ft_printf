@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/07 19:21:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/08 00:26:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,18 @@ void	ft_parse_flags(const char *format, va_list p)
 	if (*format == 's')
 		ft_putstr((char *)va_arg(p, char *));
 	if (*format == 'p')
-		ft_atoi_base(ft_itoa(va_arg(p, int)), 16);
+	{
+		// ft_putnbr(ft_atoi_base(ft_itoa(va_arg(p, int)), 16));
+		printf("va_arg output: %p\n", va_arg(p, void **));
+		// ft_putnbr_base(-398514424, "0123456789ABCDEF");
+		// ft_putnbr_base(va_arg(p, int), "0123456789ABCDEF");
+	}
 	if (*format == 'd' || *format == 'i')
 		ft_putnbr((int)va_arg(p, int));
+	if (*format == 'x')
+		ft_putnbr_base((int)va_arg(p, int), "0123456789abcdef");
+	if (*format == 'X')
+		ft_putnbr_base((int)va_arg(p, int), "0123456789ABCDEF");
 	if (*format == '%')
 		ft_putchar('%');
 }

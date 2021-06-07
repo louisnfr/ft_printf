@@ -6,55 +6,87 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 19:57:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/07 19:28:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/08 00:12:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_iswhitespace(char c)
+static int	check_base(const char *base)
 {
-	if (c == ' ' || c == '\n' || c == '\t' || c == '\v'
-		|| c == '\r' || c == '\f')
-		return (1);
+	int i;
+	int j;
+
+	i = 0;
+	while (base[i])
+		i++;
+	if (i < 2)
+		return (0);
+	i = 0;
+	while (base[i])
+	{
+		if (base[i] == '-' || base[i] == '+')
+			return (0);
+		if (base[i] == 32 || (base[i] >= 9 && base[i] <= 13))
+			return (0);
+		j = 0;
+		while (base[j])
+		{
+			if (base[j] == base[i] && i != j)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+static int	is_in_base(char c, const char *base)
+{
+	int i;
+
+	i = -1;
+	while (base[++i])
+		if (base[i] == c)
+			return (1);
 	return (0);
 }
 
-int	base(int c, int base)
+static int	pos_in_base(char c, const char *base)
 {
-	char *str = "0123456789abcdef";
-	char *str2 = "0123456789ABCDEF";
-	int  i = 0;
+	int i;
 
-	while (i < base)
-	{
-		if (c == str[i] || c == str2[i])
-			return (i);
+	i = 0;
+	while (base[i] != c)
 		i++;
-	}
-	return (-1);
+	return (i);
 }
 
-int ft_atoi_base(char *str, int str_base)
+int	ft_atoi_base(char *str, const char *base)
 {
-	int nb = 0;
-	int negatif = 0;
-	int	i = 0;
-	while (ft_iswhitespace(str[i]))
+	int		i;
+	int		sign;
+	long	value;
+
+	i = 0;
+	sign = 1;
+	value = 0;
+	if (!base)
+		return (0);
+	if (!check_base(base))
+		return (0);
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			negatif = 1;
+			sign *= -1;
 		i++;
 	}
-	while (base(str[i], str_base) != -1)
+	while (is_in_base(str[i], base))
 	{
-		nb = nb * str_base;
-		nb = nb + base(str[i], str_base);
+		value = value * ft_strlen(base) + pos_in_base(str[i], base);
 		i++;
 	}
-	if (negatif)
-		return (-nb);
-	return (nb);
+	return (value * sign);
 }

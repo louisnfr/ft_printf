@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 00:28:48 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/07 19:28:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/07 23:51:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static size_t	nbrlen(long n)
 
 char	*ft_itoa(int n)
 {
+	printf("input itoa: %d\n", n);
 	char	*ret;
 	long	nb;
 	size_t	len;
