@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/11 01:48:13 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/03 16:30:25 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/07 18:38:36 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC=			gcc
 
 FLAG=		-Wall -Wextra -Werror
 
-SRC=		ft_atoi.c \
+SRC=		ft_atoi_base.c \
+			ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
 			ft_isalnum.c \
