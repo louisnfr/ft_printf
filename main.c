@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/08 00:27:31 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/08 11:55:14 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@
 
 int	main(void)
 {
-	int var = 789;
-
-	// ft_printf("my p: %p\n", &var);
-	// printf("pf p: %p\n", &var);
-	ft_printf("x: %X\n", 12879);
-	printf("X: %X\n", 12879);
+	printf("%u\n", 15);
+	printf("%u\n", -1);
+	printf("%u\n", 0);
 	
 	return (0);
 }

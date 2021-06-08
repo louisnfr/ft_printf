@@ -6,15 +6,15 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 00:00:49 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/08 00:22:34 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/08 11:47:00 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_baselen(const char *str)
+static unsigned long int	ft_baselen(const char *str)
 {
-	int i;
+	unsigned long int i;
 
 	i = 0;
 	while (str[i])
@@ -51,11 +51,8 @@ static int	check_base(const char *base)
 	return (1);
 }
 
-void	ft_putnbr_base(int nbr, const char *base)
+void	ft_putnbr_base(unsigned long int nb, const char *base)
 {
-	long nb;
-
-	nb = nbr;
 	if (!base)
 		return ;
 	if (check_base(base) == 0)
