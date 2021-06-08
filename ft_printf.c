@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/08 11:48:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/08 12:23:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_parse_flags(const char *format, va_list p)
 	}
 	if (*format == 'd' || *format == 'i')
 		ft_putnbr((int)va_arg(p, int));
+	if (*format == 'u')
+		ft_putnbr((unsigned int)va_arg(p, unsigned int));
 	if (*format == 'x')
 		ft_putnbr_base((int)va_arg(p, int), "0123456789abcdef");
 	if (*format == 'X')

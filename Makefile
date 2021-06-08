@@ -6,7 +6,15 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 15:46:47 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/03 15:47:42 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/08 12:02:30 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME = libftprintf.a
+
+CC = gcc
+
+FLAG = -Wall -Wextra -Werror
+
+
 
