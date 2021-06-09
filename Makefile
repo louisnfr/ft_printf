@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 15:46:47 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/09 14:00:33 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/09 14:19:36 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ NAME=		printf
 
 LIB_DIR=	./libft
 
-SRCS=		ft_printf.c main.c
+SRCS=		srcs/main.c \
+			ft_printf.c 
 
 OBJ=		$(SRCS:.c=.o)
 
