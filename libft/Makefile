@@ -6,15 +6,10 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/11 01:48:13 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/08 14:12:32 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/09 13:58:44 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=		libft.a
-
-CC=			gcc
-
-FLAG=		-Wall -Wextra -Werror
 
 SRC=		ft_atoi_base.c \
 			ft_atoi.c \
@@ -68,34 +63,35 @@ BONUS=		ft_lstadd_back.c \
 			ft_lstnew.c \
 			ft_lstsize.c
 
+NAME=		libft.a
+
+CC=			gcc -I includes
+
+HEADERS=	libft.h
+
+RM=			rm -f
+
+CFLAGS=		-Wall -Wextra -Werror
+
 OBJ=		$(SRC:.c=.o)
 
 OBJ_BONUS=	$(BONUS:.c=.o)
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
-			@ar rc $(NAME) $^
-			@echo "$(NAME) created"
-			@ranlib $(NAME)
-			@echo "$(NAME) indexed"
+$(NAME):	$(OBJ) $(HEADERS)
+			ar rc $(NAME) $^
+			ranlib $(NAME)
 
-bonus:		$(OBJ) $(OBJ_BONUS)
-			@ar rc $(NAME) $^
-			@echo "$(NAME) created with bonus"
-			@ranlib $(NAME)
-			@echo "$(NAME) indexed with bonus"
+bonus:		$(OBJ) $(OBJ_BONUS) $(HEADERS)
+			ar rc $(NAME) $^
+			ranlib $(NAME)
 
-%.o: %.c
-			@$(CC) $(FLAG) -o $@ -c $<
-
-clean:
-			@rm -f $(OBJ) $(OBJ_BONUS)
-			@echo "OBJs deleted"
+clean:		
+			$(RM) *.o
 
 fclean:		clean
-			@rm -f $(NAME)
-			@echo "$(NAME) deleted"
+			$(RM) $(NAME)
 
 re:			fclean all
 
