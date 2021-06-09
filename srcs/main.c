@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/09 14:03:34 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/09 14:04:30 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/09 14:24:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
+#include "../includes/ft_printf.h"
 
-void	ft_test(void)
+int	main(void)
 {
-	printf("SALUT");
+	char c = 5;
+	ft_printf("my output: %d\n", ft_printf("This is a %p test\n", &c));
+	printf("output: %d\n", printf("This is a %p test\n", &c));
+	
+	return (0);
 }

@@ -6,12 +6,12 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/08 17:46:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/09 14:22:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "includes/ft_printf.h"
+#include "../libft/libft.h"
+#include "../includes/ft_printf.h"
 
 void	ft_parse_flags(const char *format, va_list args)
 {
