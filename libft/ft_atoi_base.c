@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 19:57:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/08 00:12:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/10 18:05:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	check_base(const char *base)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (base[i])
@@ -43,7 +43,7 @@ static int	check_base(const char *base)
 
 static int	is_in_base(char c, const char *base)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (base[++i])
@@ -54,7 +54,7 @@ static int	is_in_base(char c, const char *base)
 
 static int	pos_in_base(char c, const char *base)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (base[i] != c)

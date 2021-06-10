@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 14:05:41 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 15:52:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/10 18:09:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ static void	ft_print0xhexa(unsigned long n, const char *base, int *count)
 	else
 		*count += write(1, &base[n], 1);
 }
+
 int	ft_put0xhexa_ret(unsigned long n, const char *base)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	count += ft_putstr_ret("0x");

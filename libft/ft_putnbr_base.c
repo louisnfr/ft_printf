@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 00:00:49 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/08 17:09:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/10 18:07:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static unsigned long	ft_baselen(const char *str)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 	while (str[i])
@@ -24,8 +24,8 @@ static unsigned long	ft_baselen(const char *str)
 
 static int	check_base(const char *base)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (base[i])

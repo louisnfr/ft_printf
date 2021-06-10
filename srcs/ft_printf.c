@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 17:30:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/10 18:14:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	ft_parse_flags(const char *format, va_list args, int *count)
 {
-	int width;
-	
+	int	width;
+
 	if (*format == '0')
 	{
 		format++;
@@ -37,7 +37,8 @@ void	ft_convert(const char *format, va_list args, int *count)
 	if (*format == 's')
 		*count += ft_putstr_ret(va_arg(args, char *));
 	if (*format == 'p')
-		*count += ft_put0xhexa_ret(va_arg(args, unsigned long), "0123456789abcdef");
+		*count += ft_put0xhexa_ret(va_arg(args, unsigned long),
+				"0123456789abcdef");
 	if (*format == 'd' || *format == 'i')
 		*count += ft_putnbr_ret(va_arg(args, int));
 	if (*format == 'u')
@@ -67,9 +68,9 @@ void	ft_check_format(const char *format, va_list args, int *count)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	int count;
-	
+	va_list	args;
+	int		count;
+
 	count = 0;
 	va_start(args, format);
 	ft_check_format(format, args, &count);
