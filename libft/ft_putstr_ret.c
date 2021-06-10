@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_ret.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 15:28:16 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/10 13:37:00 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/10 13:41:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_putstr_ret(char *s)
 {
-	// char c = 5;
+	int count;
 	
-	ft_printf("my output: %d\n", ft_printf("This is a %x test\n", -1));
-	printf("output: %d\n", printf("This is a %x test\n", -1));
-	
-	return (0);
+	count = 0;
+	while (s && *s)
+		count += write(1, s++, 1);
+	return (count);
 }

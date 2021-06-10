@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_u_ret.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 15:28:16 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/10 13:56:14 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/10 14:02:58 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_putnbr_u_ret(unsigned int n)
 {
-	// char c = 5;
-	
-	ft_printf("my output: %d\n", ft_printf("This is a %x test\n", -1));
-	printf("output: %d\n", printf("This is a %x test\n", -1));
-	
-	return (0);
+	int count;
+
+	count = 0;
+	if (n > 9)
+	{
+		count += ft_putnbr_ret(n / 10);
+		count += ft_putnbr_ret(n % 10);
+	}
+	else
+		count += ft_putchar_ret(n + 48);
+	return (count);
 }

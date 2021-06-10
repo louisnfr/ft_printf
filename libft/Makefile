@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/11 01:48:13 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/09 14:24:17 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/10 15:37:40 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,15 +27,20 @@ SRC=		ft_atoi_base.c \
 			ft_memcpy.c \
 			ft_memmove.c \
 			ft_memset.c \
+			ft_put0xhexa_ret.c \
 			ft_putchar_fd.c \
+			ft_putchar_ret.c \
 			ft_putchar.c \
 			ft_putendl_fd.c \
-			ft_puthexa.c \
+			ft_puthexa_ret.c \
 			ft_putnbr_base.c \
 			ft_putnbr_fd.c \
+			ft_putnbr_ret.c \
+			ft_putnbr_u_ret.c \
 			ft_putnbr_u.c \
 			ft_putnbr.c \
 			ft_putstr_fd.c \
+			ft_putstr_ret.c \
 			ft_putstr.c \
 			ft_split.c \
 			ft_strchr.c \

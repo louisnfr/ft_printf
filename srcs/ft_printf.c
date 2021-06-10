@@ -6,44 +6,44 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/09 14:22:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/10 15:58:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../includes/ft_printf.h"
 
-void	ft_parse_flags(const char *format, va_list args)
+void	ft_parse_flags(const char *format, va_list args, int *count)
 {
 	if (*format == 'c')
-		ft_putchar(va_arg(args, int));
+		*count += ft_putchar_ret(va_arg(args, int));
 	if (*format == 's')
-		ft_putstr(va_arg(args, char *));
+		*count += ft_putstr_ret(va_arg(args, char *));
 	if (*format == 'p')
-		ft_puthexa(va_arg(args, unsigned long), "0123456789abcdef");
+		*count += ft_put0xhexa_ret(va_arg(args, unsigned long), "0123456789abcdef");
 	if (*format == 'd' || *format == 'i')
-		ft_putnbr(va_arg(args, int));
+		*count += ft_putnbr_ret(va_arg(args, int));
 	if (*format == 'u')
-		ft_putnbr_u(va_arg(args, unsigned int));
+		*count += ft_putnbr_u_ret(va_arg(args, unsigned int));
 	if (*format == 'x')
-		ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
+		*count += ft_puthexa_ret(va_arg(args, int), "0123456789abcdef");
 	if (*format == 'X')
-		ft_putnbr_base(va_arg(args, int), "0123456789ABCDEF");
+		*count += ft_puthexa_ret(va_arg(args, int), "0123456789ABCDEF");
 	if (*format == '%')
-		ft_putchar('%');
+		*count += ft_putchar_ret('%');
 }
 
-void	ft_check_format(const char *format, va_list args)
+void	ft_check_format(const char *format, va_list args, int *count)
 {
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			ft_parse_flags(format + 1, args);
+			ft_parse_flags(format + 1, args, count);
 			format++;
 		}
 		else
-			ft_putchar(*format);
+			*count += ft_putchar_ret(*format);
 		format++;
 	}
 }
@@ -51,9 +51,11 @@ void	ft_check_format(const char *format, va_list args)
 int	ft_printf(const char *format, ...)
 {
 	va_list args;
+	int count;
 	
+	count = 0;
 	va_start(args, format);
-	ft_check_format(format, args);
+	ft_check_format(format, args, &count);
 	va_end(args);
-	return (0);
+	return (count);
 }

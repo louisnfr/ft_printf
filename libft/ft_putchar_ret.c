@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_ret.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 15:28:16 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/10 11:30:13 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/10 11:31:46 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_putchar_ret(char c)
 {
-	// char c = 5;
-	
-	ft_printf("my output: %d\n", ft_printf("This is a %x test\n", -1));
-	printf("output: %d\n", printf("This is a %x test\n", -1));
-	
-	return (0);
+	return (write(1, &c, 1));
 }

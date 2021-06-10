@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_ret.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 15:28:16 by lraffin          ###   ########.fr       */
+/*   Created: 2021/04/14 19:50:43 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/10 14:02:46 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_putnbr_ret(int n)
 {
-	// char c = 5;
+	long	nbr;
+	int count;
 	
-	ft_printf("my output: %d\n", ft_printf("This is a %x test\n", -1));
-	printf("output: %d\n", printf("This is a %x test\n", -1));
-	
-	return (0);
+	nbr = n;
+	count = 0;
+	if (nbr < 0)
+	{
+		count += ft_putchar_ret('-');
+		nbr = -nbr;
+	}
+	if (nbr > 9)
+	{
+		count += ft_putnbr_ret(nbr / 10);
+		count += ft_putnbr_ret(nbr % 10);
+	}
+	else
+		count += ft_putchar_ret(nbr + 48);
+	return (count);
 }

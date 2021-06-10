@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:39:18 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/09 14:24:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/10 15:41:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,19 @@ void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_putchar_fd(char c, int fd);
+int			ft_putchar_ret(char c);
 void		ft_putchar(char c);
 void		ft_putendl_fd(char *s, int fd);
-void		ft_puthexa(unsigned long n, const char *base);
+int			ft_put0xhexa_ret(unsigned long n, const char *base);
+int			ft_puthexa_ret(unsigned int n, const char *base);
 void		ft_putnbr_base(unsigned long nb, const char *base);
 void		ft_putnbr_fd(int n, int fd);
+int			ft_putnbr_u_ret(unsigned int n);
 void		ft_putnbr_u(unsigned int n);
+int			ft_putnbr_ret(int n);
 void		ft_putnbr(int n);
 void		ft_putstr_fd(char *s, int fd);
+int			ft_putstr_ret(char *s);
 void		ft_putstr(const char *s);
 char		**ft_split(const char *s, char c);
 char		*ft_strchr(const char *s, int c);
