@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:42:35 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 11:42:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/10 17:06:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdarg.h>
 
 int		ft_printf(const char *format, ...);
-void	ft_parse_flags(const char *format, va_list args, int *count);
+// void	ft_parse_flags(const char *format, va_list args, int *count);
+void	ft_convert(const char *format, va_list args, int *count);
 void	ft_check_format(const char *format, va_list args, int *count);
 
 # endif

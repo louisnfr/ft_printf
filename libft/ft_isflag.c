@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isflag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:34:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 17:24:07 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/10 17:17:25 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/10 17:22:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_isflag(int c)
 {
-	// char c = 5;
-	
-	ft_printf("my output: %d\n", ft_printf("This is a %042d test\n", 15));
-	printf("output: %d\n", printf("This is a %042d test\n", 15));
-	
+	if (c == 'c' || c == 's' || c == 'p' || c == 'd'
+	|| c == 'i' || c == 'u' || c == 'x' || c == 'X' || c == '%')
+		return (1);
 	return (0);
 }

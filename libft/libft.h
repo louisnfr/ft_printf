@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:39:18 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 15:41:13 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/10 17:14:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int			ft_isalnum(int c);
 int			ft_isalpha(int c);
 int			ft_isascii(int c);
 int			ft_isdigit(int c);
+int			ft_isflag(int c);
 int			ft_isprint(int c);
 char		*ft_itoa(int n);
 void		ft_lstadd_back(t_list **alst, t_list *new);

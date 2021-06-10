@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 15:58:12 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/10 17:30:41 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,23 @@
 
 void	ft_parse_flags(const char *format, va_list args, int *count)
 {
+	int width;
+	
+	if (*format == '0')
+	{
+		format++;
+		width = ft_atoi(format);
+		while (width--)
+			*count += ft_putchar_ret('0');
+	}
+	(void)args;
+}
+
+void	ft_convert(const char *format, va_list args, int *count)
+{
+	ft_parse_flags(format, args, count);
+	while (!ft_isflag(*format))
+		format++;
 	if (*format == 'c')
 		*count += ft_putchar_ret(va_arg(args, int));
 	if (*format == 's')
@@ -39,7 +56,7 @@ void	ft_check_format(const char *format, va_list args, int *count)
 	{
 		if (*format == '%')
 		{
-			ft_parse_flags(format + 1, args, count);
+			ft_convert(format + 1, args, count);
 			format++;
 		}
 		else
