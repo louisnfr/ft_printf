@@ -5,75 +5,88 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 14:00:42 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/14 14:05:20 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/ft_printf.h"
 #include "../libft/libft.h"
-#include "../includes/ft_printf.h"
 
-void	ft_parse_flags(const char *format, va_list args, int *count)
+int ft_convert(t_print *tab, const char *format, int pos)
 {
-	int	width;
+	if (format[pos] == 'c')
+		ft_print_char(tab);
+	if (format[pos] == 's')
+		ft_print_string(tab);
+	// if (format[pos] == 'p')
+	// 	ft_print_pointer(tab);
+	if (format[pos] == 'd' || *format == 'i')
+		ft_print_integer(tab);
+	// if (format[pos] == 'u')
+	// 	ft_print_integer(tab);
+	// if (format[pos] == 'x')
+	// 	ft_print_char(tab);
+	// if (format[pos] == 'X')
+	// 	ft_print_char(tab);
+	// if (format[pos] == '%')
+	// 	ft_print_char(tab);
+	return (pos);
+}
 
-	if (*format == '0')
+int ft_check_format(t_print *tab, const char *format, int pos)
+{
+	while (!ft_isflag(format[pos]))
 	{
-		format++;
-		width = ft_atoi(format);
-		while (width--)
-			*count += ft_putchar_ret('0');
+		if (format[pos] == '-')
+			pos = ft_dash(tab, format, pos);
+		if (format[pos] == '.')
+			tab->dot = 1;
+		if (format[pos] == '0')
+			pos = ft_zero(tab, format, pos);
+		if (format[pos] == '*')
+			tab->precision = 1;
+		if (ft_isdigit(format[pos]))
+			pos = ft_width(tab, format, pos);
 	}
-	(void)args;
+	ft_convert(tab, format, pos);
+	return (pos);
 }
 
-void	ft_convert(const char *format, va_list args, int *count)
+t_print *ft_init_tab(t_print *tab)
 {
-	ft_parse_flags(format, args, count);
-	while (!ft_isflag(*format))
-		format++;
-	if (*format == 'c')
-		*count += ft_putchar_ret(va_arg(args, int));
-	if (*format == 's')
-		*count += ft_putstr_ret(va_arg(args, char *));
-	if (*format == 'p')
-		*count += ft_put0xhexa_ret(va_arg(args, unsigned long),
-				"0123456789abcdef");
-	if (*format == 'd' || *format == 'i')
-		*count += ft_putnbr_ret(va_arg(args, int));
-	if (*format == 'u')
-		*count += ft_putnbr_u_ret(va_arg(args, unsigned int));
-	if (*format == 'x')
-		*count += ft_puthexa_ret(va_arg(args, int), "0123456789abcdef");
-	if (*format == 'X')
-		*count += ft_puthexa_ret(va_arg(args, int), "0123456789ABCDEF");
-	if (*format == '%')
-		*count += ft_putchar_ret('%');
+	tab->width = 0;
+	tab->precision = 0;
+	tab->zero = 0;
+	tab->dot = 0;
+	tab->dash = 0;
+	tab->length = 0;
+	tab->ret = 0;
+	return (tab);
 }
 
-void	ft_check_format(const char *format, va_list args, int *count)
+int ft_printf(const char *format, ...)
 {
-	while (*format)
+	t_print *tab;
+	int ret;
+	int i;
+
+	tab = malloc(sizeof(t_print));
+	if (!tab)
+		return (-1);
+	ft_init_tab(tab);
+	va_start(tab->args, format);
+	i = -1;
+	ret = 0;
+	while (format[++i])
 	{
-		if (*format == '%')
-		{
-			ft_convert(format + 1, args, count);
-			format++;
-		}
+		if (format[i] == '%')
+			i = ft_check_format(tab, format, i + 1);
 		else
-			*count += ft_putchar_ret(*format);
-		format++;
+			ret += write(1, &format[i], 1);
 	}
-}
-
-int	ft_printf(const char *format, ...)
-{
-	va_list	args;
-	int count;
-
-	count = 0;
-	va_start(args, format);
-	ft_check_format(format, args, &count);
-	va_end(args);
-	return (count);
+	va_end(tab->args);
+	ret += tab->ret;
+	free(tab);
+	return (ret);
 }
