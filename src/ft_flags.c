@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:08:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 17:31:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 19:07:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,25 @@ int	ft_zero(t_print *tab, const char *format, int pos)
 	return (pos);
 }
 
+int	ft_star(t_print *tab, const char *format, int pos)
+{
+	(void)format;
+	pos++;
+	tab->width= va_arg(tab->args, int);
+	return (pos);
+}
+
 int	ft_width(t_print *tab, const char *format, int pos)
 {
 	if (ft_isdigit(format[pos]))
 	{
 		tab->width = ft_atoi(format + pos);
 		pos += ft_nbrlen(tab->width, 10);
+	}
+	if (format[pos] == '*')
+	{
+		tab->width = va_arg(tab->args, int);
+		pos++;
 	}
 	return (pos);
 }

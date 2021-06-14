@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 17:10:56 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 19:09:23 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int	ft_convert(t_print *tab, const char *format, int pos)
 		ft_print_integer(tab);
 	if (format[pos] == 'u')
 		ft_print_unsigned(tab);
-	// if (format[pos] == 'x')
-	// 	ft_print_char(tab);
-	// if (format[pos] == 'X')
-	// 	ft_print_char(tab);
+	if (format[pos] == 'x')
+		ft_print_hexa(tab, 'x');
+	if (format[pos] == 'X')
+		ft_print_hexa(tab, 'X');
 	if (format[pos] == '%')
 		tab->ret += write(1, "%", 1);
 	return (pos);
@@ -68,7 +68,7 @@ int	ft_check_format(t_print *tab, const char *format, int pos)
 		if (format[pos] == '0')
 			pos = ft_zero(tab, format, pos);
 		if (format[pos] == '*')
-			tab->precision = 1;
+			pos = ft_star(tab, format, pos);
 		if (ft_isdigit(format[pos]))
 			pos = ft_width(tab, format, pos);
 	}

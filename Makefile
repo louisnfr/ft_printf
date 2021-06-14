@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 15:46:47 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/14 14:08:26 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/14 17:58:56 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDE_PATH=	include/
 
 SRC_FILES=		src/ft_printf.c \
 				src/ft_print_strings.c \
-				src/ft_print_integers.c \
+				src/ft_print_numbers.c \
 				src/ft_flags.c \
 				src/ft_alignment.c
 

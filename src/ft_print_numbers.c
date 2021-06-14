@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_integers.c                                :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 17:17:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 18:10:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,22 @@ void	ft_print_pointer(t_print *tab)
 	if (tab->width && !tab->dash)
 		ft_put_width(tab);	
 	tab->ret += ft_put0xhexa_ret(p, "0123456789abcdef");
+	if (tab->width && tab->dash)
+		ft_put_width(tab);
+}
+
+void	ft_print_hexa(t_print *tab, char c)
+{
+	unsigned int x;
+	
+	x = va_arg(tab->args, unsigned int);
+	tab->length = ft_nbrlen(x, 16);
+	if (tab->width && !tab->dash)
+		ft_put_width(tab);	
+	if (c == 'x')
+		tab->ret += ft_puthexa_ret(x, "0123456789abcdef");
+	else
+		tab->ret += ft_puthexa_ret(x, "0123456789ABCDEF");
 	if (tab->width && tab->dash)
 		ft_put_width(tab);
 }
