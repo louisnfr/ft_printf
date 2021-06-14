@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:08:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 23:10:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 23:20:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,8 @@ int		ft_dot(t_print *tab, const char *format, int pos)
 	tab->dot = 1;
 	pos++;
 	if (tab->width && !tab->zero && !tab->dash)
-	{
 		tab->minimal = tab->width;
-		tab->width = 0;
-	}
+		// tab->width = 0;
 	if (ft_isdigit(format[pos]))
 	{
 		tab->maximal = ft_atoi(format + pos);
