@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:08:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 19:07:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 19:39:56 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,19 @@ int	ft_width(t_print *tab, const char *format, int pos)
 		tab->width = va_arg(tab->args, int);
 		pos++;
 	}
+	return (pos);
+}
+
+int		ft_dot(t_print *tab, const char *format, int pos)
+{
+	tab->dot = 1;
+	if (tab->width)
+		tab->minimal = tab->width;
+	pos++;
+	pos = ft_width(tab, format, pos);
+	tab->maximal = tab->width;
+	printf("min: %d\nmax: %d\n", tab->minimal, tab->maximal);
+	pos++;
+	pos++; // bloque ici
 	return (pos);
 }

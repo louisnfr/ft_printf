@@ -6,11 +6,11 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 15:46:47 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/14 17:58:56 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/14 19:17:06 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=			printf.a
+NAME=			libftprintf.a
 
 SRC_PATH=		src/
 

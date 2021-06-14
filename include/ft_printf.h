@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:46:36 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 19:09:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 19:31:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_print
 	va_list	args;
 	int		width;
 	int		precision;
+	int		minimal;
+	int		maximal;
 	int		zero;
 	int		dot;
 	int		dash;
@@ -42,6 +44,7 @@ int		ft_dash(t_print *tab, const char *format, int pos);
 int		ft_width(t_print *tab, const char *format, int pos);
 int		ft_zero(t_print *tab, const char *format, int pos);
 int		ft_star(t_print *tab, const char *format, int pos);
+int		ft_dot(t_print *tab, const char *format, int pos);
 t_print	*ft_reset_tab(t_print *tab);
 t_print	*ft_init_tab(t_print *tab);
 
