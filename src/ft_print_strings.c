@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 16:33:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 16:30:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 22:54:02 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ void	ft_print_char(t_print *tab)
 void	ft_print_string(t_print *tab)
 {
 	char	*s;
-
+	
 	s = va_arg(tab->args, char *);
 	tab->length = ft_strlen(s);
+	if (tab->maximal)
+		tab->length = tab->maximal;
 	if (tab->width && !tab->dash)
 		ft_put_width(tab);
-	tab->ret += ft_putstr_ret(s);
+	tab->ret += ft_putstr_n_ret(s, tab->length);
 	if (tab->width && tab->dash)
 		ft_put_width(tab);
 }

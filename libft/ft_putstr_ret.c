@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 13:37:00 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 18:12:00 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 22:41:44 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_putstr_ret(char *s)
 {
-	int	count;
+	int	ret;
 
-	count = 0;
+	ret = 0;
 	while (s && *s)
-		count += write(1, s++, 1);
-	return (count);
+		ret += write(1, s++, 1);
+	return (ret);
 }

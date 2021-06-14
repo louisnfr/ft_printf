@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_n_ret.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 18:42:40 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 22:54:50 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/14 22:39:18 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/14 22:42:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
-#include "include/libft.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_putstr_n_ret(char *s, int n)
 {
-	printf("\t| ret: %d\n", ft_printf("-%010.8s-", "AOIFUAOIDFUAOIDFUOADFU"));
-	printf("\t| ret: %d\n", printf("-%010.8s-", "AOIFUAOIDFUAOIDFUOADFU"));
+	int	ret;
 
-	return (0);
+	ret = 0;
+	while (s && *s && n--)
+		ret += write(1, s++, 1);
+	return (ret);
 }
