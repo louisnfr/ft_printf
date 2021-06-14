@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 16:30:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 17:10:56 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	ft_convert(t_print *tab, const char *format, int pos)
 		ft_print_pointer(tab);
 	if (format[pos] == 'd' || *format == 'i')
 		ft_print_integer(tab);
-	// if (format[pos] == 'u')
-	// 	ft_print_integer(tab);
+	if (format[pos] == 'u')
+		ft_print_unsigned(tab);
 	// if (format[pos] == 'x')
 	// 	ft_print_char(tab);
 	// if (format[pos] == 'X')

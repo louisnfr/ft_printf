@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:42:40 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 16:29:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 17:56:27 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 
 int	main(void)
 {
-	char p = 65;
-	// printf("RET_VALUE: %d\n", ft_printf("test -%010d- test %c %%, %s\n", 42, 65, "oui"));
-	// printf("RET_VALUE: %d\n", printf("test -%010d- test %c %%, %s\n", 42, 65, "oui"));
+	printf("RET_VALUE: %d\n", ft_printf("test -%010d- test %c %%, %s, %u\n", 42, 65, "oui", -98));
+	printf("RET_VALUE: %d\n", printf("test -%010d- test %c %%, %s, %u\n", 42, 65, "oui", -98));
 	
-	ft_printf("-%16d-\n", -26);
-	printf("-%16d-\n", -26);
 	return (0);
 }
