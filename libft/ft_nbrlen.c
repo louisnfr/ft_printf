@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isflag.c                                        :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 17:17:25 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/13 14:15:52 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/13 14:31:42 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/14 14:15:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isflag(int c)
+int	ft_nbrlen(int n, int base_size)
 {
-	if (ft_isalpha(c)|| c == '%')
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (n > 0)
+	{
+		n /= base_size;
+		i++;
+	}
+	return (i);
 }

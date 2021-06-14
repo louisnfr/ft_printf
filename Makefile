@@ -6,34 +6,55 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 15:46:47 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/10 11:23:38 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/14 14:08:26 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC=			gcc
-CFLAGS=		-Wall -Wextra -Werror
+NAME=			printf.a
 
-NAME=		printf
+SRC_PATH=		src/
 
-LIB_DIR=	./libft
+LIBFT_PATH=		libft/
 
-SRCS=		srcs/main.c \
-			srcs/ft_printf.c 
+LIBFT_LIB=		libft.a
 
-OBJ=		$(SRCS:.c=.o)
+INCLUDE_PATH=	include/
 
-all:		
-			$(MAKE) bonus -C $(LIB_DIR)
-			$(CC) $(CFLAGS) $(SRCS) ./libft/libft.a -o $(NAME)
+SRC_FILES=		src/ft_printf.c \
+				src/ft_print_strings.c \
+				src/ft_print_integers.c \
+				src/ft_flags.c \
+				src/ft_alignment.c
 
-clean:		
-			$(MAKE) clean -C $(LIB_DIR)
-			rm -fv $(NAME)
+SRC_OBJS=		${SRC_FILES:.c=.o}
 
-fclean:		
-			$(MAKE) fclean -C $(LIB_DIR)
-			rm -fv $(NAME)
+CC= 			gcc
 
-re:			fclean all
+CFLAGS=			-Wall -Wextra -Werror
 
-.PHONY:		all, clean, fclean, re
+RM=				rm -f
+
+AR=				ar rcs
+
+LIBFT_OBJS=		${LIBFT_PATH}*.o
+
+LIBFTMAKE=		$(MAKE) -C ${LIBFT_PATH} bonus
+
+all:			${NAME}
+
+${NAME}:    	${SRC_OBJS} pmake
+				${AR} ${NAME} ${SRC_OBJS} ${LIBFT_OBJS}
+
+pmake:
+				${LIBFTMAKE}
+
+clean:
+				make -C ${LIBFT_PATH} clean
+				${RM} ${SRC_OBJS}
+
+fclean: 		clean
+				${RM} ${NAME} ${LIBFT_PATH}${LIBFT_LIB}
+
+re:         	fclean all
+
+.PHONY:        all clean fclean re

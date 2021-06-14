@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:39:18 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 17:14:57 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 14:10:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,12 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memset(void *b, int c, size_t len);
+int			ft_nbrlen(int n, int base_size);
+int			ft_put0xhexa_ret(unsigned long n, const char *base);
 void		ft_putchar_fd(char c, int fd);
 int			ft_putchar_ret(char c);
 void		ft_putchar(char c);
 void		ft_putendl_fd(char *s, int fd);
-int			ft_put0xhexa_ret(unsigned long n, const char *base);
 int			ft_puthexa_ret(unsigned int n, const char *base);
 void		ft_putnbr_base(unsigned long nb, const char *base);
 void		ft_putnbr_fd(int n, int fd);

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:14:05 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 18:14:33 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 14:00:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_check_format(const char *format, va_list args, int *count)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int		count;
+	int count;
 
 	count = 0;
 	va_start(args, format);
