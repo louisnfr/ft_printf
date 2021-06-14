@@ -5,18 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/13 14:31:42 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 14:15:55 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/14 16:26:57 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/14 16:28:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_nbrlen(int n, int base_size)
+int	ft_nbrlen(long n, int base_size)
 {
 	int	i;
 
 	i = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		i++;
+	}
 	while (n > 0)
 	{
 		n /= base_size;

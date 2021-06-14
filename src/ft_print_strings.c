@@ -6,11 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 16:33:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 15:07:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 16:30:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "../include/libft.h"
 #include "../include/ft_printf.h"
 
 void	ft_print_char(t_print *tab)

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 18:42:40 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 16:29:17 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/13 14:31:42 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/14 16:25:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
-#include "include/libft.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_nbrlen_ul(unsigned long n, int base_size)
 {
-	char p = 65;
-	// printf("RET_VALUE: %d\n", ft_printf("test -%010d- test %c %%, %s\n", 42, 65, "oui"));
-	// printf("RET_VALUE: %d\n", printf("test -%010d- test %c %%, %s\n", 42, 65, "oui"));
-	
-	ft_printf("-%16d-\n", -26);
-	printf("-%16d-\n", -26);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (n > 0)
+	{
+		n /= base_size;
+		i++;
+	}
+	return (i);
 }

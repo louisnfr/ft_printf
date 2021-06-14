@@ -6,12 +6,12 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:08:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 15:03:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 16:29:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-#include "../libft/libft.h"
+#include "../include/libft.h"
 
 int	ft_dash(t_print *tab, const char *format, int pos)
 {

@@ -6,12 +6,35 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 15:04:48 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 16:30:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-#include "../libft/libft.h"
+#include "../include/libft.h"
+
+t_print	*ft_init_tab(t_print *tab)
+{
+	tab->width = 0;
+	tab->precision = 0;
+	tab->zero = 0;
+	tab->dot = 0;
+	tab->dash = 0;
+	tab->length = 0;
+	tab->ret = 0;
+	return (tab);
+}
+
+t_print	*ft_reset_tab(t_print *tab)
+{
+	tab->width = 0;
+	tab->precision = 0;
+	tab->zero = 0;
+	tab->dot = 0;
+	tab->dash = 0;
+	tab->length = 0;
+	return (tab);
+}
 
 int	ft_convert(t_print *tab, const char *format, int pos)
 {
@@ -19,8 +42,8 @@ int	ft_convert(t_print *tab, const char *format, int pos)
 		ft_print_char(tab);
 	if (format[pos] == 's')
 		ft_print_string(tab);
-	// if (format[pos] == 'p')
-	// 	ft_print_pointer(tab);
+	if (format[pos] == 'p')
+		ft_print_pointer(tab);
 	if (format[pos] == 'd' || *format == 'i')
 		ft_print_integer(tab);
 	// if (format[pos] == 'u')
@@ -29,8 +52,8 @@ int	ft_convert(t_print *tab, const char *format, int pos)
 	// 	ft_print_char(tab);
 	// if (format[pos] == 'X')
 	// 	ft_print_char(tab);
-	// if (format[pos] == '%')
-	// 	ft_print_char(tab);
+	if (format[pos] == '%')
+		tab->ret += write(1, "%", 1);
 	return (pos);
 }
 
@@ -50,19 +73,8 @@ int	ft_check_format(t_print *tab, const char *format, int pos)
 			pos = ft_width(tab, format, pos);
 	}
 	ft_convert(tab, format, pos);
+	ft_reset_tab(tab);
 	return (pos);
-}
-
-t_print	*ft_init_tab(t_print *tab)
-{
-	tab->width = 0;
-	tab->precision = 0;
-	tab->zero = 0;
-	tab->dot = 0;
-	tab->dash = 0;
-	tab->length = 0;
-	tab->ret = 0;
-	return (tab);
 }
 
 int	ft_printf(const char *format, ...)
