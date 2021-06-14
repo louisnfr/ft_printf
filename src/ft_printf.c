@@ -6,14 +6,14 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 14:05:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/14 15:04:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 #include "../libft/libft.h"
 
-int ft_convert(t_print *tab, const char *format, int pos)
+int	ft_convert(t_print *tab, const char *format, int pos)
 {
 	if (format[pos] == 'c')
 		ft_print_char(tab);
@@ -34,7 +34,7 @@ int ft_convert(t_print *tab, const char *format, int pos)
 	return (pos);
 }
 
-int ft_check_format(t_print *tab, const char *format, int pos)
+int	ft_check_format(t_print *tab, const char *format, int pos)
 {
 	while (!ft_isflag(format[pos]))
 	{
@@ -53,7 +53,7 @@ int ft_check_format(t_print *tab, const char *format, int pos)
 	return (pos);
 }
 
-t_print *ft_init_tab(t_print *tab)
+t_print	*ft_init_tab(t_print *tab)
 {
 	tab->width = 0;
 	tab->precision = 0;
@@ -65,11 +65,11 @@ t_print *ft_init_tab(t_print *tab)
 	return (tab);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	t_print *tab;
-	int ret;
-	int i;
+	t_print	*tab;
+	int		ret;
+	int		i;
 
 	tab = malloc(sizeof(t_print));
 	if (!tab)
