@@ -1,3 +1,7 @@
+# Testers
+pft/
+printfTester/
+
 # Prerequisites
 *.d
 
@@ -50,4 +54,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-pft/

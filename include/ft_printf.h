@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:46:36 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/15 12:34:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/15 15:14:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	ft_print_integer(t_print *tab);
 void	ft_print_unsigned(t_print *tab);
 void	ft_print_pointer(t_print *tab);
 void	ft_print_hexa(t_print *tab, char c);
+void	ft_update_width(t_print *tab);
 void	ft_put_width(t_print *tab);
 int		ft_dash(t_print *tab, const char *format, int pos);
 int		ft_width(t_print *tab, const char *format, int pos);
