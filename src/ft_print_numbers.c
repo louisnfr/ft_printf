@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/15 18:11:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/15 19:12:27 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,16 @@ void	ft_print_integer(t_print *tab)
 	int	n;
 
 	n = va_arg(tab->args, int);
-	tab->length = ft_nbrlen(n, 10);
+	if (tab->dot && n == 0 && !tab->precision)
+		return ;
+	// printf("TABWIDTH: %d\n", tab->width);
+	tab->length = ft_nbrlen(n, 10);	
+	// printf("TABLENGTH: %d\n", tab->length);
+	ft_update_width(tab);
 	if (tab->width && !tab->dash)
 		ft_put_width(tab);
+	while (tab->length < tab->precision-- && tab->width && tab->width--)
+		tab->ret += write(1, "0", 1);
 	tab->ret += ft_putnbr_ret(n);
 	if (tab->width && tab->dash)
 		ft_put_width(tab);
@@ -32,6 +39,7 @@ void	ft_print_unsigned(t_print *tab)
 
 	u = va_arg(tab->args, unsigned int);
 	tab->length = ft_nbrlen(u, 10);
+	ft_update_width(tab);
 	if (tab->width && !tab->dash)
 		ft_put_width(tab);
 	tab->ret += ft_putnbr_u_ret(u);

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 16:33:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/15 15:20:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/15 18:40:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	ft_print_string(t_print *tab)
 		s = "(null)";
 	tab->length = ft_strlen(s);
 	ft_update_width(tab);
-	if (tab->dot && (tab->maximal < tab->length))
-		tab->length = tab->maximal;
+	if (tab->dot && (tab->precision < tab->length))
+		tab->length = tab->precision;
 	if ((tab->width > tab->length) && !tab->dash)
 		ft_put_width(tab);
 	tab->ret += ft_putstr_n_ret(s, tab->length);

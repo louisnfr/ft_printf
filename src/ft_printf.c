@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/15 14:53:14 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/15 18:39:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 t_print	*ft_init_tab(t_print *tab)
 {
 	tab->width = 0;
-	tab->maximal = 0;
 	tab->precision = 0;
 	tab->zero = 0;
 	tab->dot = 0;
@@ -29,7 +28,6 @@ t_print	*ft_init_tab(t_print *tab)
 t_print	*ft_reset_tab(t_print *tab)
 {
 	tab->width = 0;
-	tab->maximal = 0;
 	tab->precision = 0;
 	tab->zero = 0;
 	tab->dot = 0;
