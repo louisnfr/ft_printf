@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:46:36 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 19:31:55 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/15 12:34:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ typedef struct s_print
 {
 	va_list	args;
 	int		width;
-	int		precision;
-	int		minimal;
 	int		maximal;
+	int		precision;
 	int		zero;
 	int		dot;
 	int		dash;

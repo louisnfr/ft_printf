@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:08:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 23:20:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/15 12:38:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ int	ft_star(t_print *tab, const char *format, int pos)
 {
 	(void)format;
 	pos++;
-	tab->width= va_arg(tab->args, int);
+	if (!tab->dot)
+		tab->width = va_arg(tab->args, int);
+	// if (format[pos] == '.')
+	// 	pos = ft_dot(tab, format, pos);
 	return (pos);
 }
 
@@ -68,13 +71,17 @@ int		ft_dot(t_print *tab, const char *format, int pos)
 {
 	tab->dot = 1;
 	pos++;
-	if (tab->width && !tab->zero && !tab->dash)
-		tab->minimal = tab->width;
-		// tab->width = 0;
+	// if (tab->width && !tab->zero && !tab->dash)
+	// {
+	// 	tab->minimal = tab->width;
+	// 	tab->width = 0;
+	// }
 	if (ft_isdigit(format[pos]))
 	{
 		tab->maximal = ft_atoi(format + pos);
 		pos += ft_nbrlen(tab->maximal, 10);
 	}
+	else if (format[pos] == '*')
+		pos = ft_star(tab, format, pos);
 	return (pos);
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:27:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/14 16:29:50 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/15 12:35:15 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void	ft_put_width(t_print *tab)
 {
-	tab->width -= tab->length;
-	while (!tab->zero && tab->width--)
-		tab->ret += write(1, " ", 1);
-	while (tab->zero && tab->width--)
-		tab->ret += write(1, "0", 1);
+		tab->width -= tab->length;
+		while (!tab->zero && tab->width--)
+			tab->ret += write(1, " ", 1);
+		while (tab->zero && tab->width--)
+			tab->ret += write(1, "0", 1);
 }
