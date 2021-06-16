@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:08:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/15 18:39:18 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/16 16:55:34 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ int		ft_dot(t_print *tab, const char *format, int pos)
 		tab->precision = ft_atoi(format + pos);
 		pos += ft_nbrlen(tab->precision, 10);
 	}
-	else if (ft_isflag(format[pos]))
-		tab->precision = 0;
 	// else if (format[pos] == '*')
 	// 	pos = ft_star(tab, format, pos);
 	return (pos);

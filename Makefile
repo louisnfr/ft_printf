@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 15:46:47 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/14 19:17:06 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/16 17:47:44 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC_OBJS=		${SRC_FILES:.c=.o}
 
 CC= 			gcc
 
-CFLAGS=			-Wall -Wextra -Werror
+CFLAGS=			-Wall -Wextra -Werror 
 
 RM=				rm -f
 
