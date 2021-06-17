@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/17 18:00:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 18:28:18 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,10 @@ void	ft_print_integer(t_print *tab)
 	
 	if (n < 0)
 		tab->sign = 1;
+
+	if (tab->dot && !tab->precision && !n)	
+		return ft_weird(tab);
 	
-	if (tab->dot && !tab->precision && !n)
-	{
-		// while (!tab->zero && tab->width-- > 0)
-		// 	tab->ret += write(1, " ", 1);
-		return ;
-	}
 	ft_update_width_int(tab);
 	
 	if (!tab->dash)

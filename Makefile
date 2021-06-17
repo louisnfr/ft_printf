@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 15:46:47 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/16 17:47:44 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/17 18:24:12 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC_FILES=		src/ft_printf.c \
 				src/ft_print_strings.c \
 				src/ft_print_numbers.c \
 				src/ft_flags.c \
-				src/ft_alignment.c
+				src/ft_alignment.c \
+				src/ft_printf_utils.c
 
 SRC_OBJS=		${SRC_FILES:.c=.o}
 
