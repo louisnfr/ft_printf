@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/17 18:28:18 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 19:25:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	ft_print_integer(t_print *tab)
 	
 	if (n < 0)
 		tab->sign = 1;
-
+	if (n < 0 && tab->zero && !tab->dot)
+		tab->ret += write(1, "-", 1);
+		
 	if (tab->dot && !tab->precision && !n)	
 		return ft_weird(tab);
 	
@@ -30,13 +32,13 @@ void	ft_print_integer(t_print *tab)
 	
 	if (!tab->dash)
 		ft_put_width_int(tab);
-	if (n < 0)
+	if (n < 0 && !tab->zero)
 		tab->ret += write(1, "-", 1);	
 	while (tab->precision-- - ft_nbrlen(n, 10) > 0)
 		tab->ret += write(1, "0", 1);
 	tab->ret += ft_putnbr_ret(n);
 	if (tab->dash)
-		ft_put_width_int(tab);
+		ft_put_spaces_int(tab);
 }
 
 void	ft_print_unsigned(t_print *tab)
