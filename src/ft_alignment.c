@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:27:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/16 19:24:34 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 17:26:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,45 +43,29 @@ void ft_update_width_int(t_print *tab)
 		tab->width *= -1;
 		tab->dash = 1;
 	}
-	if (tab->precision < 0)
-	{
-		tab->precision = 0;
-		tab->dot = 0;
-	}
-	if (tab->dot || tab->dash)
+	if (tab->dash)
 		tab->zero = 0;
+	if (tab->dot)
+	{
+		if (tab->length <= tab->precision)
+			tab->width -= tab->precision;
+		else if (tab->length > tab->precision)
+			tab->width -= tab->length;
+		else if (tab->width <= tab->length || tab->width <= tab->precision)
+			tab->width = 0;
+	}
+	else if (tab->zero)
+	{
+		tab->width -= tab->length;
+		tab->width -= tab
+	}
+	// printf("width: %d\n", tab->width);
 }
 
 void ft_put_width_int(t_print *tab)
 {
-	tab->width -= tab->length;
-	tab->precision -= tab->width;
-	while (!tab->zero && tab->width--)
+	while (!tab->zero && tab->width-- > 0)
 		tab->ret += write(1, " ", 1);
-	while (tab->zero && tab->width--)
+	while (tab->zero && tab->width-- > 0)
 		tab->ret += write(1, "0", 1);
-}
-
-void	ft_put_zeros(t_print *tab)
-{
-	while (tab->precision)
-	{
-		
-	}
-	
-	if (tab->precision > tab->length)
-		while (tab->precision--)
-			tab->ret += write(1, "0", 1);
-}
-
-void	ft_put_spaces(t_print *tab)
-{
-	while (tab->precision)
-	{
-		
-	}
-	
-	if (tab->precision > tab->length)
-		while (tab->precision--)
-			tab->ret += write(1, "0", 1);
 }

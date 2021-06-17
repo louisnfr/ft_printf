@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/16 19:22:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 17:21:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,30 @@
 void	ft_print_integer(t_print *tab)
 {
 	int	n;
-	
+
 	n = va_arg(tab->args, int);
 	tab->length = ft_nbrlen(n, 10);
 	
 	if (tab->dot && !tab->precision && !n)
 		return ;
-
+	
+	// if (n < 0)
+	// 	tab->width--;
 	ft_update_width_int(tab);
 
-	// if (tab->dash)
-	// {
-	// 	ft_put_zeros(tab);
-	// 	tab->ret += ft_putnbr_ret(n);
-	// 	ft_put_spaces(tab);
-	// }
-
-	if (tab->width && !tab->dash)
+	if (n < 0)
+	{
+		n *= -1;
+		tab->ret += write(1, "-", 1);	
+	}
+	if (!tab->dash)
 		ft_put_width_int(tab);
-	if (tab->precision && tab->dash)
-	{
-		while (tab->precision-- - tab->length > 0)
+	// printf("zero: %d, width: %d\n", tab->zero, tab->width);
+	
+	while (tab->precision-- - ft_nbrlen(n, 10) > 0)
 		tab->ret += write(1, "0", 1);
-	}
 	tab->ret += ft_putnbr_ret(n);
-	if (tab->precision && !tab->dash)
-	{
-		while (tab->precision-- - tab->length > 0)
-		tab->ret += write(1, "0", 1);
-	}
-	if (tab->width && tab->dash)
+	if (tab->dash)
 		ft_put_width_int(tab);
 }
 

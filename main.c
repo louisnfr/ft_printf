@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:42:40 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/16 19:12:29 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 17:23:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void)
 {
-	printf("\t| ret: %d\n", printf("-%-2.2d-", 1));
-	printf("\t| ret: %d\n", ft_printf("-%-2.2d-", 1));
+	printf("\t| ret: %d\n", printf("-%0*.*d-", 21, 10, -102));
+	printf("\t| ret: %d\n", ft_printf("-%0*.*d-", 21, 10, -102));
 	return (0);
 }
