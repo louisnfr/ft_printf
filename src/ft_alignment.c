@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:27:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/17 17:26:57 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 17:37:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,14 @@ void ft_update_width_int(t_print *tab)
 	if (tab->dot)
 	{
 		if (tab->length <= tab->precision)
-			tab->width -= tab->precision;
+			tab->width -= tab->precision + tab->sign;
 		else if (tab->length > tab->precision)
-			tab->width -= tab->length;
+			tab->width -= tab->length + tab->sign;
 		else if (tab->width <= tab->length || tab->width <= tab->precision)
 			tab->width = 0;
 	}
-	else if (tab->zero)
-	{
-		tab->width -= tab->length;
-		tab->width -= tab
-	}
+	else
+		tab->width -= tab->length + tab->sign;
 	// printf("width: %d\n", tab->width);
 }
 

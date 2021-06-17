@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:26:57 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/15 15:03:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 17:36:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	ft_nbrlen(long n, int base_size)
 	if (n == 0)
 		return (1);
 	if (n < 0)
-	{
 		n *= -1;
-		i++;
-	}
 	while (n > 0)
 	{
 		n /= base_size;

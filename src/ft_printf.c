@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/17 11:37:03 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 17:35:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_print	*ft_init_tab(t_print *tab)
 	tab->dot = 0;
 	tab->dash = 0;
 	tab->length = 0;
+	tab->sign = 0;
 	tab->ret = 0;
 	return (tab);
 }
@@ -33,6 +34,7 @@ t_print	*ft_reset_tab(t_print *tab)
 	tab->dot = 0;
 	tab->dash = 0;
 	tab->length = 0;
+	tab->sign = 0;
 	return (tab);
 }
 

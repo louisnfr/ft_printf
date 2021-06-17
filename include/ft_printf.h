@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:46:36 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/17 14:35:53 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 17:35:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_print
 	int		dot;
 	int		dash;
 	int		length;
+	int		sign;
 	int		ret;
 }			t_print;
 
