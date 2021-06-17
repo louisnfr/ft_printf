@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/17 19:25:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/17 19:26:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_print_integer(t_print *tab)
 
 	n = va_arg(tab->args, int);
 	tab->length = ft_nbrlen(n, 10);
-	
 	if (n < 0)
 		tab->sign = 1;
 	if (n < 0 && tab->zero && !tab->dot)
@@ -27,9 +26,7 @@ void	ft_print_integer(t_print *tab)
 		
 	if (tab->dot && !tab->precision && !n)	
 		return ft_weird(tab);
-	
 	ft_update_width_int(tab);
-	
 	if (!tab->dash)
 		ft_put_width_int(tab);
 	if (n < 0 && !tab->zero)
