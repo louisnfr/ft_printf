@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/11 01:48:13 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/14 22:43:32 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/18 12:24:12 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC=		ft_atoi_base.c \
 			ft_memcpy.c \
 			ft_memmove.c \
 			ft_memset.c \
+			ft_nbrlen_u.c \
 			ft_nbrlen_ul.c \
 			ft_nbrlen.c \
 			ft_put0xhexa_ret.c \

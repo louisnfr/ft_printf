@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/17 19:26:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/18 12:41:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,17 @@ void	ft_print_unsigned(t_print *tab)
 	unsigned int u;
 
 	u = va_arg(tab->args, unsigned int);
-	tab->length = ft_nbrlen(u, 10);
-	ft_update_width(tab);
+	tab->length = ft_nbrlen_u(u, 10);
+	if (tab->dot && !tab->precision && !u)	
+		return ft_weird(tab);
+	ft_update_width_int(tab);
 	if (tab->width && !tab->dash)
-		ft_put_width(tab);
+		ft_put_width_int(tab);
+	while (tab->precision-- - ft_nbrlen_u(u, 10) > 0)
+		tab->ret += write(1, "0", 1);
 	tab->ret += ft_putnbr_u_ret(u);
 	if (tab->width && tab->dash)
-		ft_put_width(tab);
+		ft_put_width_int(tab);
 }
 
 void	ft_print_pointer(t_print *tab)
@@ -72,12 +76,17 @@ void	ft_print_hexa(t_print *tab, char c)
 	
 	x = va_arg(tab->args, unsigned int);
 	tab->length = ft_nbrlen(x, 16);
+	if (tab->dot && !tab->precision && !x)	
+		return ft_weird(tab);
+	ft_update_width_int(tab);
 	if (tab->width && !tab->dash)
-		ft_put_width(tab);	
+		ft_put_width_int(tab);	
+	while (tab->precision-- - ft_nbrlen(x, 16) > 0)
+		tab->ret += write(1, "0", 1);
 	if (c == 'x')
 		tab->ret += ft_puthexa_ret(x, "0123456789abcdef");
 	else
 		tab->ret += ft_puthexa_ret(x, "0123456789ABCDEF");
 	if (tab->width && tab->dash)
-		ft_put_width(tab);
+		ft_put_width_int(tab);
 }

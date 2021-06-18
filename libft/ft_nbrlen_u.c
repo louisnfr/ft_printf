@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbrlen_ul.c                                     :+:      :+:    :+:   */
+/*   ft_nbrlen_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/13 14:31:42 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/18 12:21:05 by lraffin          ###   ########.fr       */
+/*   Created: 2021/06/18 12:19:24 by lraffin           #+#    #+#             */
+/*   Updated: 2021/06/18 12:21:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_nbrlen_ul(unsigned long n, int base_size)
+int	ft_nbrlen_u(unsigned int n, int base_size)
 {
 	int	i;
 
