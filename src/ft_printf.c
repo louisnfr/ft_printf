@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/17 19:36:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/18 19:31:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_print	*ft_init_tab(t_print *tab)
 	tab->zero = 0;
 	tab->dot = 0;
 	tab->dash = 0;
-	tab->length = 0;
 	tab->sign = 0;
+	tab->length = 0;
 	tab->ret = 0;
 	return (tab);
 }
@@ -32,9 +32,9 @@ t_print	*ft_reset_tab(t_print *tab)
 	tab->precision = 0;
 	tab->zero = 0;
 	tab->dot = 0;
+	tab->sign = 0;
 	tab->dash = 0;
 	tab->length = 0;
-	tab->sign = 0;
 	return (tab);
 }
 
@@ -55,7 +55,7 @@ int	ft_convert(t_print *tab, const char *format, int pos)
 	if (format[pos] == 'X')
 		ft_print_hexa(tab, 'X');
 	if (format[pos] == '%')
-		tab->ret += write(1, "%", 1);
+		ft_print_percent(tab);
 	return (pos);
 }
 
@@ -63,6 +63,8 @@ int	ft_check_format(t_print *tab, const char *format, int pos)
 {
 	while (!ft_isflag(format[pos]))
 	{
+		if (format[pos] == ' ')
+			pos = ft_space(tab, pos);
 		if (format[pos] == '-')
 			pos = ft_dash(tab, format, pos);
 		if (format[pos] == '.')
@@ -85,6 +87,8 @@ int	ft_printf(const char *format, ...)
 	int		ret;
 	int		i;
 
+	if (!format)
+		return (0);
 	tab = malloc(sizeof(t_print));
 	if (!tab)
 		return (-1);

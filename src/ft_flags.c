@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:08:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/16 16:55:34 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/18 19:47:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,10 @@ int	ft_star(t_print *tab, const char *format, int pos)
 	return (pos);
 }
 
-int	ft_width(t_print *tab, const char *format, int pos)
+int		ft_space(t_print *tab, int pos)
 {
-	if (ft_isdigit(format[pos]))
-	{
-		tab->width = ft_atoi(format + pos);
-		pos += ft_nbrlen(tab->width, 10);
-	}
-	if (format[pos] == '*')
-	{
-		tab->width = va_arg(tab->args, int);
-		pos++;
-	}
+	tab->ret += write(1, " ", 1);
+	pos++;
 	return (pos);
 }
 
@@ -73,10 +65,13 @@ int		ft_dot(t_print *tab, const char *format, int pos)
 	pos++;
 	if (ft_isdigit(format[pos]))
 	{
+		while (format[pos] =='0' && ft_isdigit(format[pos + 1]))
+			pos++;
 		tab->precision = ft_atoi(format + pos);
+		// printf("prec: %d\n", tab->precision);
 		pos += ft_nbrlen(tab->precision, 10);
 	}
-	// else if (format[pos] == '*')
-	// 	pos = ft_star(tab, format, pos);
+	else if (format[pos] == '*')
+		pos = ft_star(tab, format, pos);
 	return (pos);
 }

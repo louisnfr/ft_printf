@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:46:36 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/17 19:24:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/18 19:31:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef struct s_print
 	int		width;
 	int		precision;
 	int		zero;
+	int		sign;
 	int		dot;
 	int		dash;
 	int		length;
-	int		sign;
 	int		ret;
 }			t_print;
 
@@ -38,6 +38,7 @@ void	ft_print_integer(t_print *tab);
 void	ft_print_unsigned(t_print *tab);
 void	ft_print_pointer(t_print *tab);
 void	ft_print_hexa(t_print *tab, char c);
+void	ft_print_percent(t_print *tab);
 void	ft_update_width(t_print *tab);
 void	ft_update_width_int(t_print *tab);
 void	ft_put_width(t_print *tab);
@@ -49,6 +50,7 @@ int		ft_width(t_print *tab, const char *format, int pos);
 int		ft_zero(t_print *tab, const char *format, int pos);
 int		ft_star(t_print *tab, const char *format, int pos);
 int		ft_dot(t_print *tab, const char *format, int pos);
+int		ft_space(t_print *tab, int pos);
 t_print	*ft_reset_tab(t_print *tab);
 t_print	*ft_init_tab(t_print *tab);
 
