@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/11 01:48:13 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/18 12:24:12 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/19 18:58:07 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ SRC=		ft_atoi_base.c \
 			ft_putchar.c \
 			ft_putendl_fd.c \
 			ft_puthexa_ret.c \
-			ft_putnbr_base.c \
 			ft_putnbr_fd.c \
 			ft_putnbr_ret.c \
 			ft_putnbr_u_ret.c \

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:39:18 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/18 12:19:54 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/19 18:57:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int			ft_putchar_ret(char c);
 void		ft_putchar(char c);
 void		ft_putendl_fd(char *s, int fd);
 int			ft_puthexa_ret(unsigned int n, const char *base);
-void		ft_putnbr_base(unsigned long nb, const char *base);
 void		ft_putnbr_fd(int n, int fd);
 int			ft_putnbr_u_ret(unsigned int n);
 void		ft_putnbr_u(unsigned int n);
