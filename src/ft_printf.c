@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/20 03:33:34 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/20 03:57:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,39 +42,43 @@ int	ft_convert(t_print *tab, const char *format, int pos)
 {
 	if (format[pos] == 'c')
 		ft_print_char(tab);
-	if (format[pos] == 's')
+	else if (format[pos] == 's')
 		ft_print_string(tab);
-	if (format[pos] == 'p')
+	else if (format[pos] == 'p')
 		ft_print_pointer(tab);
-	if (format[pos] == 'd' || format[pos] == 'i')
+	else if (format[pos] == 'd' || format[pos] == 'i')
 		ft_print_integer(tab);
-	if (format[pos] == 'u')
+	else if (format[pos] == 'u')
 		ft_print_unsigned(tab);
-	if (format[pos] == 'x')
+	else if (format[pos] == 'x')
 		ft_print_hexa(tab, 'x');
-	if (format[pos] == 'X')
+	else if (format[pos] == 'X')
 		ft_print_hexa(tab, 'X');
-	if (format[pos] == '%')
+	else if (format[pos] == '%')
 		tab->ret += write(1, "%", 1);
+	else
+		return (1);
 	return (pos);
 }
 
 int	ft_check_format(t_print *tab, const char *format, int pos)
 {
-	while (!ft_isflag(format[pos]))
+	while (format[pos] && (!ft_isflag(format[pos])))
 	{
 		if (format[pos] == ' ')
 			pos = ft_space(tab, pos);
-		if (format[pos] == '-')
+		else if (format[pos] == '-')
 			pos = ft_dash(tab, format, pos);
-		if (format[pos] == '.')
+		else if (format[pos] == '.')
 			pos = ft_dot(tab, format, pos);
-		if (format[pos] == '0')
+		else if (format[pos] == '0')
 			pos = ft_zero(tab, format, pos);
-		if (format[pos] == '*')
+		else if (format[pos] == '*')
 			pos = ft_star(tab, format, pos);
-		if (ft_isdigit(format[pos]))
+		else if (ft_isdigit(format[pos]))
 			pos = ft_width(tab, format, pos);
+		else
+			return (1);
 	}
 	ft_convert(tab, format, pos);
 	ft_reset_tab(tab);
@@ -88,7 +92,7 @@ int	ft_printf(const char *format, ...)
 	int		i;
 
 	if (!format)
-		return (0);
+		return (-1);
 	tab = malloc(sizeof(t_print));
 	if (!tab)
 		return (-1);
