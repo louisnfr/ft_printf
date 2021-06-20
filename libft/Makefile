@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/11 01:48:13 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/19 18:58:07 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/20 02:04:37 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRC=		ft_atoi_base.c \
 			ft_putstr.c \
 			ft_split.c \
 			ft_strchr.c \
+			ft_strcmp.c \
 			ft_strdup.c \
 			ft_strjoin.c \
 			ft_strlcat.c \
