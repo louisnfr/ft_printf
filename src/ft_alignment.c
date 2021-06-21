@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:27:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/20 01:49:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/21 17:06:02 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void ft_update_width(t_print *tab)
 	{
 		tab->width *= -1;
 		tab->dash = 1;
+		tab->zero = 0;
 	}
 	if (tab->precision < 0)
 	{
