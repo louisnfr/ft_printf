@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 17:46:36 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/19 19:07:56 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/21 16:21:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_put_width(t_print *tab);
 void	ft_put_width_int(t_print *tab);
 void	ft_put_spaces_int(t_print *tab);
 void	ft_weird(t_print *tab);
+void	ft_null_pointer(t_print *tab);
 int		ft_dash(t_print *tab, const char *format, int pos);
 int		ft_width(t_print *tab, const char *format, int pos);
 int		ft_zero(t_print *tab, const char *format, int pos);

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/21 15:26:37 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/21 16:46:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,23 @@ void	ft_print_pointer(t_print *tab)
 	unsigned long p;
 	
 	p = va_arg(tab->args, unsigned long);
-	tab->length = ft_nbrlen_ul(p, 16) + 2;
-	// if (!p)
-	// 	tab->length = 5;
+	if (!(!p && tab->dot))
+		tab->length = ft_nbrlen_ul(p, 16) + 2;
+	else
+		tab->length = 2;
+	
 	ft_update_width(tab);
+	if (!p && tab->dot && tab->precision > 0)
+	{
+		ft_null_pointer(tab);
+		return ;
+	}
 	if (tab->width && !tab->dash)
 		ft_put_width(tab);	
-	// if (!p)
-	// 	tab->ret += write(1, "(nil)", 5);
-	// else
+	tab->ret += write(1, "0x", 2);
+	while (tab->precision-- > 0)
+		tab->ret += write(1, "0", 1);
+	if (!(!p && tab->dot))
 		tab->ret += ft_put0xhexa_ret(p, "0123456789abcdef");
 	if (tab->width && tab->dash)
 		ft_put_width(tab);
