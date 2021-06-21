@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 16:33:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/20 03:33:29 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/21 15:32:27 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	ft_print_string(t_print *tab)
 		s = "(null)";
 	tab->length = ft_strlen(s);
 	ft_update_width(tab);
-	if (!ft_strncmp(s, "(null)", 6) && tab->dot && tab->precision < tab->length)
-		tab->length = 0;
+	// if (!ft_strncmp(s, "(null)", 6) && tab->dot && tab->precision < tab->length)
+	// 	tab->length = 0;
 	if (tab->dot && (tab->precision < tab->length))
 		tab->length = tab->precision;
 	if ((tab->width > tab->length) && !tab->dash)
@@ -49,10 +49,11 @@ void	ft_print_string(t_print *tab)
 
 void	ft_print_percent(t_print *tab)
 {
-	// tab->length = 1;
-	// if (!tab->dash)
-	// 	ft_put_width(tab);
+	tab->length = 1;
+	ft_update_width(tab);
+	if (!tab->dash)
+		ft_put_width(tab);
 	tab->ret += write(1, "%", 1);
-	// if (tab->dash)
-	// 	ft_put_width(tab);
+	if (tab->dash)
+		ft_put_width(tab);
 }

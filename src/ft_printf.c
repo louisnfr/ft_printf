@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/20 03:57:47 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/21 15:31:02 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_convert(t_print *tab, const char *format, int pos)
 	else if (format[pos] == 'X')
 		ft_print_hexa(tab, 'X');
 	else if (format[pos] == '%')
-		tab->ret += write(1, "%", 1);
+		ft_print_percent(tab);
 	else
 		return (1);
 	return (pos);

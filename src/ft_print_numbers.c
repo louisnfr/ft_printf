@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/20 23:39:00 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/21 15:26:37 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	ft_print_pointer(t_print *tab)
 	
 	p = va_arg(tab->args, unsigned long);
 	tab->length = ft_nbrlen_ul(p, 16) + 2;
-	if (!p)
-		tab->length = 5;
+	// if (!p)
+	// 	tab->length = 5;
 	ft_update_width(tab);
 	if (tab->width && !tab->dash)
 		ft_put_width(tab);	
