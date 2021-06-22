@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:06:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/22 18:26:46 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/22 18:40:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_print_integer(t_print *tab)
 	tab->length = ft_nbrlen(n, 10);
 	if (n < 0)
 		tab->sign = 1;
-	if (tab->dot && !tab->precision && !n)	
-		return ft_special(tab);
+	if (tab->dot && !tab->precision && !n)
+		return (ft_special(tab));
 	ft_update_width_int(tab);
 	if (tab->sign && tab->zero && !tab->dot && !tab->dash)
 		tab->ret += write(1, "-", 1);
@@ -39,12 +39,12 @@ void	ft_print_integer(t_print *tab)
 
 void	ft_print_unsigned(t_print *tab)
 {
-	unsigned int u;
+	unsigned int	u;
 
 	u = va_arg(tab->args, unsigned int);
 	tab->length = ft_nbrlen_u(u, 10);
-	if (tab->dot && !tab->precision && !u)	
-		return ft_special(tab);
+	if (tab->dot && !tab->precision && !u)
+		return (ft_special(tab));
 	ft_update_width_int(tab);
 	if (tab->width && !tab->dash)
 		ft_put_width(tab);
@@ -57,8 +57,8 @@ void	ft_print_unsigned(t_print *tab)
 
 void	ft_print_pointer(t_print *tab)
 {
-	unsigned long p;
-	
+	unsigned long	p;
+
 	p = va_arg(tab->args, unsigned long);
 	if (!(!p && tab->dot))
 		tab->length = ft_nbrlen_ul(p, 16) + 2;
@@ -72,7 +72,7 @@ void	ft_print_pointer(t_print *tab)
 		return ;
 	}
 	if (tab->width && !tab->dash)
-		ft_put_width(tab);	
+		ft_put_width(tab);
 	tab->ret += write(1, "0x", 2);
 	while (tab->precision-- > 0)
 		tab->ret += write(1, "0", 1);
@@ -84,15 +84,15 @@ void	ft_print_pointer(t_print *tab)
 
 void	ft_print_hexa(t_print *tab, char c)
 {
-	unsigned int x;
-	
+	unsigned int	x;
+
 	x = va_arg(tab->args, unsigned int);
 	tab->length = ft_nbrlen(x, 16);
-	if (tab->dot && !tab->precision && !x)	
-		return ft_special(tab);
+	if (tab->dot && !tab->precision && !x)
+		return (ft_special(tab));
 	ft_update_width_int(tab);
 	if (tab->width && !tab->dash)
-		ft_put_width(tab);	
+		ft_put_width(tab);
 	while (tab->precision-- - ft_nbrlen(x, 16) > 0)
 		tab->ret += write(1, "0", 1);
 	if (c == 'x')

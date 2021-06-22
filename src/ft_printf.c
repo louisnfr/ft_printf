@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:19:39 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/22 15:43:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/22 18:42:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_check_format(t_print *tab, const char *format, int pos)
 			return (0);
 	}
 	if (!format[pos])
-		return (pos - 1) ;
+		return (pos - 1);
 	ft_convert(tab, format, pos);
 	ft_reset_tab(tab);
 	return (pos);

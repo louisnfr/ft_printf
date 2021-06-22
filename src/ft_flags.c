@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:08:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/18 19:47:43 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/22 18:38:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,22 @@ int	ft_star(t_print *tab, const char *format, int pos)
 	return (pos);
 }
 
-int		ft_space(t_print *tab, int pos)
+int	ft_space(t_print *tab, int pos)
 {
 	tab->ret += write(1, " ", 1);
 	pos++;
 	return (pos);
 }
 
-int		ft_dot(t_print *tab, const char *format, int pos)
+int	ft_dot(t_print *tab, const char *format, int pos)
 {
 	tab->dot = 1;
 	pos++;
 	if (ft_isdigit(format[pos]))
 	{
-		while (format[pos] =='0' && ft_isdigit(format[pos + 1]))
+		while (format[pos] == '0' && ft_isdigit(format[pos + 1]))
 			pos++;
 		tab->precision = ft_atoi(format + pos);
-		// printf("prec: %d\n", tab->precision);
 		pos += ft_nbrlen(tab->precision, 10);
 	}
 	else if (format[pos] == '*')

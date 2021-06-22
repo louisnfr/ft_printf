@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_alignment.c                                     :+:      :+:    :+:   */
+/*   ft_update.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:27:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/22 18:19:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/22 18:42:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 #include "../include/ft_printf.h"
 
-void ft_update_width(t_print *tab)
+void	ft_update_width(t_print *tab)
 {
 	if (tab->width < 0)
 	{
@@ -28,7 +28,7 @@ void ft_update_width(t_print *tab)
 	}
 }
 
-void ft_update_width_int(t_print *tab)
+void	ft_update_width_int(t_print *tab)
 {
 	if (tab->width < 0)
 	{
@@ -56,7 +56,7 @@ void ft_update_width_int(t_print *tab)
 		tab->width -= tab->length + tab->sign;
 }
 
-void ft_put_width(t_print *tab)
+void	ft_put_width(t_print *tab)
 {
 	while (!tab->zero && tab->width-- > 0)
 		tab->ret += write(1, " ", 1);

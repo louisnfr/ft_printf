@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 16:33:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/22 18:18:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/22 18:41:23 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_print_char(t_print *tab)
 void	ft_print_string(t_print *tab)
 {
 	char	*s;
-	
+
 	s = va_arg(tab->args, char *);
 	if (!s)
 		s = "(null)";
