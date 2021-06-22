@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 18:42:40 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/21 17:05:36 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/22 12:48:36 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 int	main(void)
 {
-	// char	*format = "-%.p-";
-	// int		spec = 15;
+	char	*format = "salut %5 wro ui";
+	int		spec = 5;
 	// char	*spec = NULL;
 	// printf("%s\n", format);
-	printf("\t| ret: %d\n", printf("%0*.20%", -10));
-	printf("\t| ret: %d\n", ft_printf("%0*.20%", -10));
+	printf("\t| ret: %d\n", printf(format, spec));
+	printf("\t| ret: %d\n", ft_printf(format, spec));
 	return (0);
 }
