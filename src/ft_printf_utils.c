@@ -6,14 +6,14 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 18:23:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/21 16:32:37 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/22 18:25:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 #include "../include/ft_printf.h"
 
-void	ft_weird(t_print *tab)
+void	ft_special(t_print *tab)
 {
 	if (tab->width < 0)
 		tab->width *= -1;

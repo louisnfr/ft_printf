@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 16:33:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/21 15:32:27 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/22 18:18:09 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_print_char(t_print *tab)
 
 	c = va_arg(tab->args, int);
 	tab->length = 1;
-	ft_update_width(tab);
+	ft_update_width_int(tab);
 	if (tab->width && !tab->dash)
 		ft_put_width(tab);
 	tab->ret += write(1, &c, 1);
@@ -36,11 +36,10 @@ void	ft_print_string(t_print *tab)
 		s = "(null)";
 	tab->length = ft_strlen(s);
 	ft_update_width(tab);
-	// if (!ft_strncmp(s, "(null)", 6) && tab->dot && tab->precision < tab->length)
-	// 	tab->length = 0;
 	if (tab->dot && (tab->precision < tab->length))
 		tab->length = tab->precision;
-	if ((tab->width > tab->length) && !tab->dash)
+	tab->width -= tab->length;
+	if ((tab->width) && !tab->dash)
 		ft_put_width(tab);
 	tab->ret += ft_putstr_n_ret(s, tab->length);
 	if (tab->width && tab->dash)
@@ -51,6 +50,7 @@ void	ft_print_percent(t_print *tab)
 {
 	tab->length = 1;
 	ft_update_width(tab);
+	tab->width -= tab->length;
 	if (!tab->dash)
 		ft_put_width(tab);
 	tab->ret += write(1, "%", 1);

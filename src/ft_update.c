@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:27:21 by lraffin           #+#    #+#             */
-/*   Updated: 2021/06/21 17:06:02 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/06/22 18:19:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,6 @@ void ft_update_width(t_print *tab)
 	}
 }
 
-void ft_put_width(t_print *tab)
-{
-	tab->width -= tab->length;
-	while (!tab->zero && tab->width-- > 0)
-		tab->ret += write(1, " ", 1);
-	while (tab->zero && tab->width-- > 0)
-		tab->ret += write(1, "0", 1);
-}
-
 void ft_update_width_int(t_print *tab)
 {
 	if (tab->width < 0)
@@ -47,7 +38,6 @@ void ft_update_width_int(t_print *tab)
 	}
 	if (tab->precision < 0)
 	{
-		// tab->precision *= -1;
 		tab->precision = 0;
 		tab->dot = 0;
 	}
@@ -66,16 +56,10 @@ void ft_update_width_int(t_print *tab)
 		tab->width -= tab->length + tab->sign;
 }
 
-void ft_put_width_int(t_print *tab)
+void ft_put_width(t_print *tab)
 {
 	while (!tab->zero && tab->width-- > 0)
 		tab->ret += write(1, " ", 1);
 	while (tab->zero && tab->width-- > 0)
 		tab->ret += write(1, "0", 1);
-}
-
-void ft_put_spaces_int(t_print *tab)
-{
-	while (tab->width-- > 0)
-		tab->ret += write(1, " ", 1);
 }
