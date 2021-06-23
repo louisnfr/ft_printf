@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 15:46:47 by lraffin           #+#    #+#              #
-#    Updated: 2021/06/22 18:25:14 by lraffin          ###   ########.fr        #
+#    Updated: 2021/06/23 14:53:21 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC_OBJS=		${SRC_FILES:.c=.o}
 
 CC= 			gcc
 
-CFLAGS=			-Wall -Wextra -Werror 
+CFLAGS=			-Wall -Wextra -Werror
 
 RM=				rm -f
 
@@ -58,4 +58,4 @@ fclean: 		clean
 
 re:         	fclean all
 
-.PHONY:        all clean fclean re
+.PHONY:        all clean fclean re pmake
